@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Hover Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-800 to-gray-900">
+
+  <div class="relative w-96 h-64 overflow-hidden rounded-2xl group cursor-pointer shadow-2xl">
+    <img src="https://source.unsplash.com/random/600x400" 
+         alt="Cool Background" 
+         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+    
+    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+      <h2 id="clickable-text"
+          class="text-white text-2xl font-bold transition-all duration-500 group-hover:text-yellow-400 group-hover:brightness-125 animate-pulse">
+        
+What is this bro👀
+
+      </h2>
+    </div>
+  </div>
+
+  <script>
+    const text = document.getElementById("clickable-text");
+    const colors = ["text-red-400", "text-green-400", "text-blue-400", "text-pink-400", "text-yellow-400"];
+    let current = 0;
+
+    text.addEventListener("click", () => {
+      text.classList.remove(colors[current]);
+      current = (current + 1) % colors.length;
+      text.classList.add(colors[current]);
+    });
+  </script>
+
+</body>
+</html
